@@ -1,0 +1,43 @@
+{% extends 'cr_app/base.html' %}
+
+{% block content %}
+    <h1 class="my-4">Home -
+        <small>Hotel List</small>
+    </h1>
+    <div class="row">
+    {% if object_list %}
+        <div class="col-12" style="overflow-x: scroll">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Hotel Name</th>
+                    <th scope="col">City Name</th>
+                    <th scope="col">Rooms</th>
+                    <th scope="col">View</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for hotel in object_list %}
+                <tr>
+                    <td>{{ hotel.hotel_name }}</td>
+                    <td>{{ hotel.city_name }}</td>
+                    <td>{{ hotel.rooms }}</td>
+                    <td><a href="{% url "hotel_view" hotel.id %}"><button type="button" class="btn btn-outline-primary btn-sm">View</button></a></td>
+                    <td><a href="{% url "hotel_edit" hotel.id %}"><button type="button" class="btn btn-outline-secondary btn-sm">Edit</button></a></td>
+                    <td><a href="{% url "hotel_delete" hotel.id %}"><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+    {% else %}
+    <div class="col-12">
+        <div class="alert alert-warning" role="alert">
+            There is no hotel, yet. But if you want, you can add from <a class="badge badge-info" href="{% url "hotel_new" %}"><strong>here.</strong></a>
+        </div>
+    </div>
+    {% endif %}
+    </div>
+{% endblock %}

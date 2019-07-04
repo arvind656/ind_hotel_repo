@@ -1,0 +1,19 @@
+{% extends 'cr_app/base.html' %}
+
+{% block content %}
+    <h1 class="my-4">Detail -
+        <small>{{ hotelobject.hotel_name }}</small>
+    </h1>
+    <div class="row">
+        <div class="col-12">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Hotel Name:</strong> {{ hotelobject.hotel_name }}</li>
+              <li class="list-group-item"><strong>City Name:</strong> {{ hotelobject.city_name }}</li>
+              <li class="list-group-item"><strong>Rooms:</strong> {{ hotelobject.rooms }}</li>
+             
+            </ul>
+        </div>
+    </div>
+    Enter number of rooms to be booked:<input type="number" id="no_of_rooms" maxlength="3"  size="4"/><br><br>
+    <td><a href="{% url "roombook" hotelobject.id %}"><button type="button" class="btn btn-outline-secondary btn-sm"  min="0" onclick="my_button_click_handler">Book Room</button></a></td>
+                    

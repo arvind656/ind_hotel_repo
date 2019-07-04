@@ -1,0 +1,16 @@
+{% extends 'cr_app/base.html' %}
+
+{% block content %}
+    <h1 class="my-4">Detail -
+        <small>{{ object.hotel_name }}</small>
+    </h1>
+    <div class="row">
+        <div class="col-12">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Hotel Name:</strong> {{ object.hotel_name }}</li>
+              <li class="list-group-item"><strong>City Name:</strong> {{ object.city_name }}</li>
+              <li class="list-group-item"><strong>Rooms:</strong> {{ object.rooms }}</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
